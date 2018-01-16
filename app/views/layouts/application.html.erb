@@ -9,6 +9,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!-- render 和 yield 都是view层的函数方法，就是知道视图层如何渲染视图的  -->
+    <div class="container-fluid">
+        <%= render "common/navbar" %>
+        <%= render "common/flashes" %>
+        <%= yield %>
+    </div>
+
+        <%= render "common/footer" %>
   </body>
 </html>
