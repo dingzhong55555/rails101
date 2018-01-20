@@ -4,6 +4,15 @@ Rails.application.routes.draw do
   root "groups#index"
 
   resources :groups do
+    member do
+      post :join
+      delete :quit
+    end
+    resources :posts
+  end
+
+  namespace :account do
+    resources :groups
     resources :posts
   end
 end

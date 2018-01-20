@@ -3,6 +3,15 @@
     <% if current_user == @group.user %>
       <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right")%>
     <% end %>
+
+    <% if current_user && current_user.is_member_of?(@group) %>
+      <%= link_to "Quit Group", quit_group_path(@group), method: :delete, class: "btn btn-default pull-right" %>
+      <div class="btn btn-success">群组成员</div>
+    <% else %>
+      <%= link_to "Join Group", join_group_path(@group), method: :post, class: "btn btn-default pull-right" %>
+      <div class="btn btn-danger">非群组成员</div>
+    <% end %>
+
     <%= link_to "Write a post", new_group_post_path(@group), class: "btn btn-default pull-right" %>
   </div>
   <h2><%= @group.title %></h2>
