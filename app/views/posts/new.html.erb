@@ -1,0 +1,10 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="post">
+   <h1 class="title">new post</h1>
+   <%= simple_form_for [@group, @post] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.submit "Submit", method: :pot, :class => "btn btn-primary" %>
+   <% end %>
+  </div>
+</div>
